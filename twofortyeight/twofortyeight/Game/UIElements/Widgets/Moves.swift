@@ -9,10 +9,10 @@ struct Moves: View {
     
     var body: some View {
         HStack {
-            Text("moves: \(moves)").bold()
+            Text("Moves: \(moves)").bold()
         }
         .font(.system(size: 16, weight: .regular, design: .rounded))
-        .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
+        .foregroundColor(Color(UIColor.systemGray))
     }
 }
 struct Moves_Previews: PreviewProvider {

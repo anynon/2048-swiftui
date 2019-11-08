@@ -5,7 +5,6 @@ struct Tile: View {
     let wasAdded: Bool
     private let style: TileStyle
     private let title: String
-    private let size: CGFloat = 70
     
     init(_ value: Int, wasAdded: Bool = false) {
         self.wasAdded = wasAdded
@@ -33,7 +32,7 @@ struct Tile: View {
         Text(title)
             .font(.system(size: fontSize, weight: .black, design: .rounded))
             .foregroundColor(style.foregroundColor)
-            .frame(width: size, height: size)
+            .frame(width: 70, height: 70)
             .background(style.backgroundColor)
             .cornerRadius(3)
             .shadow(color: shadowColor, radius: 4, x: 0, y: 0)

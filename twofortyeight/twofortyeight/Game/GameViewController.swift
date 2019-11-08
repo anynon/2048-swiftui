@@ -1,5 +1,4 @@
 import SwiftUI
-import Foundation
 
 class GameViewController: UIHostingController<GameView> {
     private let viewModel: GameViewModel?
@@ -26,6 +25,7 @@ class GameViewController: UIHostingController<GameView> {
         view.addGestureRecognizer(Swipe(.down) { [weak self] in
             self?.viewModel?.push(.down)
         })
+        
     }
     
     @objc required dynamic init?(coder aDecoder: NSCoder) {

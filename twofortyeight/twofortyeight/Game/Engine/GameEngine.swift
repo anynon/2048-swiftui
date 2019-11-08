@@ -1,5 +1,3 @@
-import Foundation
-
 class GameEngine: Engine {
     let blankBoard = (1...4).map { _ in [0,0,0,0] }
     private var points = 0

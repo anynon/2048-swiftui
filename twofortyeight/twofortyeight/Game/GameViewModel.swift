@@ -1,4 +1,3 @@
-import Combine
 import UIKit
 
 class GameViewModel: ObservableObject {
@@ -7,7 +6,9 @@ class GameViewModel: ObservableObject {
     
     @Published var isGameOver = false
     private(set) var addedTile: (Int, Int)? = nil {
-        didSet { UIImpactFeedbackGenerator().impactOccurred() }
+        didSet {
+            UIImpactFeedbackGenerator().impactOccurred() // This brings haptic feedback when new tiles are added
+        }
     }
     private(set) var score: Int = .zero {
         didSet {

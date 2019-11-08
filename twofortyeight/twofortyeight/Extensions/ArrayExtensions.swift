@@ -1,5 +1,3 @@
-import Foundation
-
 extension Array where Iterator.Element == [Int] {
     subscript(row: Int, column: Int) -> Int {
         get {
@@ -72,9 +70,4 @@ extension Array where Iterator.Element == [Int] {
         return elementsEqual(matrix)
     }
     
-    func toMatrix() {
-        for row in 0..<count {
-            print("[\(self[row])]")
-        }
-    }
 }

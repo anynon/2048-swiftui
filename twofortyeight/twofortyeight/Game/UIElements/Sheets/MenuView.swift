@@ -17,7 +17,7 @@ struct MenuView: View {
             }
             Spacer()
         }
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .alert(isPresented: $showConfirmation) { confirmationAlert }
     }
 }

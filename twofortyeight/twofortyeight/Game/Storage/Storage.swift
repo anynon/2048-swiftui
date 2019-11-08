@@ -1,5 +1,3 @@
-import Foundation
-
 protocol Storage {
     var board: [[Int]]? { get }
     var score: Int { get }
