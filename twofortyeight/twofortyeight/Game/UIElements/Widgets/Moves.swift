@@ -2,11 +2,7 @@ import SwiftUI
 
 struct Moves: View {
     let moves: Int
-    
-    init(_ moves: Int) {
-        self.moves = moves
-    }
-    
+
     var body: some View {
         HStack {
             Text("Moves: \(moves)").bold()
@@ -17,6 +13,6 @@ struct Moves: View {
 }
 struct Moves_Previews: PreviewProvider {
     static var previews: some View {
-        Moves(123)
+        Moves(moves: 123)
     }
 }

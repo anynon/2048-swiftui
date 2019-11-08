@@ -11,7 +11,7 @@ struct GameView: View {
             }
             GoalText()
             Board(board: viewModel.board, addedTile: viewModel.addedTile)
-            Moves(viewModel.numberOfMoves)
+            Moves(moves: viewModel.moves)
         }
         .frame(minWidth: .zero,
                maxWidth: .infinity,
@@ -40,7 +40,7 @@ extension GameView {
     
     private func GameOver() -> some View {
         EmptyView().sheet(isPresented: $viewModel.isGameOver) {
-            GameOverView(score: self.viewModel.score, moves: self.viewModel.numberOfMoves) {
+            GameOverView(score: self.viewModel.score, moves: self.viewModel.moves) {
                 self.viewModel.reset()
             }
         }

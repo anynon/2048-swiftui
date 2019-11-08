@@ -21,6 +21,11 @@ class GameViewModel: ObservableObject {
             storage.save(bestScore: bestScore)
         }
     }
+    private(set) var moves: Int = .zero {
+        didSet {
+            storage.save(moves: moves)
+        }
+    }
     private(set) var board: [[Int]] {
         willSet { boardHasChanged = !board.isEqual(newValue) }
         didSet {
@@ -28,7 +33,7 @@ class GameViewModel: ObservableObject {
             storage.save(board: board)
         }
     }
-    private(set) var numberOfMoves: Int = .zero
+
     private var boardHasChanged = false
     
     init(_ engine: Engine, storage: Storage) {
@@ -37,6 +42,7 @@ class GameViewModel: ObservableObject {
         self.score = storage.score
         self.board = storage.board ?? engine.blankBoard
         self.bestScore = max(storage.bestScore, storage.score)
+        self.moves = storage.moves
     }
     
     func start() {
@@ -55,14 +61,14 @@ class GameViewModel: ObservableObject {
         score += result.scoredPoints
         if boardHasChanged {
             addNumber()
-            numberOfMoves.increase()
+            moves.increase()
         }
     }
     
     func reset() {
         board = engine.blankBoard
         score = .zero
-        numberOfMoves = .zero
+        moves = .zero
         addNumber()
     }
     

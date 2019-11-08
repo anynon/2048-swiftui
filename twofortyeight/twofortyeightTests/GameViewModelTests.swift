@@ -134,7 +134,7 @@ class GameViewModelTests: XCTestCase {
         sut.push(.up)
         sut.push(.down)
         
-        XCTAssertEqual(sut.numberOfMoves, 3)
+        XCTAssertEqual(sut.moves, 3)
     }
     
     private func newViewModelStub() -> GameViewModelStub {
@@ -146,6 +146,7 @@ class MockStorage: Storage {
     var savedScore = 0
     var savedBestScore = 0
     var savedBoard: Matrix? = GameEngineStub().blankBoard
+    var savedMoves = 0
     
     func save(bestScore: Int) {
         savedBestScore = bestScore
@@ -159,6 +160,10 @@ class MockStorage: Storage {
         savedBoard = board
     }
     
+    func save(moves: Int) {
+        savedMoves = moves
+    }
+    
     var score: Int {
         return savedScore
     }
@@ -169,6 +174,10 @@ class MockStorage: Storage {
     
     var board: Matrix? {
         return savedBoard
+    }
+    
+    var moves: Int {
+        return savedMoves
     }
 }
 
